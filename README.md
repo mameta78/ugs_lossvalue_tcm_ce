@@ -9,7 +9,7 @@ The study integrates a Big Data based zonal travel cost model (TCM) with a discr
 
 ## Repository Structure
 
-.
+```.
 ├── CEE_code.R                # Main R script for integrating TCM and DCE results
 ├── CEE_appendix.R            # Appendix analyses and robustness checks
 ├── data_R/                   # Processed data for R analysis
@@ -25,6 +25,7 @@ The study integrates a Big Data based zonal travel cost model (TCM) with a discr
 ├── Output_continuous.lim     # Continuous specification results
 ├── Derived_CE_*.lpj          # Derived choice probabilities
 └── README.md
+```
 
 ### Software Requirements
 R (>= 4.2)
