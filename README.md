@@ -1,7 +1,7 @@
 # Quantifying Recreational Value Losses of Urban Green Spaces under Extreme Heat and Humidity
 
 ## Authors
-This repository is maintained by Kota Mameno in collaboration with Yasushi Shoji.
+This repository is maintained by Kota Mameno in collaboration with Yasushi Shoji and Jiayu Wang.
 
 Paper authors:  
 First author and corresponding author: Jiayu Wang  
