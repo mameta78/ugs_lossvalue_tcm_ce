@@ -500,7 +500,7 @@ ggsave(
 
 
 ## Appendix S9
-raw_reuslt_i <- read_excel(here::here("data","CE_KLA_ZTCM","RPL_Parameters.xlsx"),sheet="Beta_I") %>% 
+raw_reuslt_i <- read_excel(here::here("data","data_R","CE_KLA_ZTCM","RPL_Parameters.xlsx"),sheet="Beta_I") %>% 
   rename("id"="...1","mt26"="1","mt28"="2","mt30"="3","mt32"="4","mt34"="5","hum65"="6","hum80"="7",
          "wpf"="8","ac"="9","mt"="10") %>% 
   mutate(time = -0.04108,
@@ -508,8 +508,8 @@ raw_reuslt_i <- read_excel(here::here("data","CE_KLA_ZTCM","RPL_Parameters.xlsx"
 
 
 
-did <- read_excel(here::here("data","data_appendixS9.xlsx"), sheet="did")
-ugs_loc <- read_excel(here::here("data","data_appendixS9.xlsx"), sheet="ugs")
+did <- read_excel(here::here("data","data_R","data_appendixs10"), sheet="did")
+ugs_loc <- read_excel(here::here("data","data_R","data_appendixs10"), sheet="ugs")
 
 origins <- did$location
 destinations <- ugs_loc$location
@@ -562,7 +562,7 @@ dist_long <- dist_df %>%
   )　%>% 
   mutate(nDist = distance_m/1000*2)
 
-dist <- read_excel(here::here("data","CE_KLA_ZTCM","KLA_Rawdata.xlsx")) %>% 
+dist <- read_excel(here::here("data","data_R","CE_KLA_ZTCM","KLA_Rawdata.xlsx")) %>% 
   select(ID, UGS,Year, Cities="Citis", Pop,  Vis, ln_VisPop="ln(Vis/Pop)", Dist="Dist...8",Chl,Eld) %>% 
   left_join(
     dist_long, by=c("UGS","Cities")

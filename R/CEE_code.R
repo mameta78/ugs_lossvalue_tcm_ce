@@ -7,13 +7,13 @@
 pacman::p_load(readxl, tidyverse, modelsummary, flextable, officer,writexl,plotly,htmltools,patchwork,scales, ggsci, gridExtra, ggplot2)
 
 # data import
-raw_reuslt_i <- read_excel(here::here("data","CE_KLA_ZTCM","RPL_Parameters.xlsx"),sheet="Beta_I") %>% 
+raw_reuslt_i <- read_excel(here::here("data","data_R","CE_KLA_ZTCM","RPL_Parameters.xlsx"),sheet="Beta_I") %>% 
   rename("id"="...1","mt26"="1","mt28"="2","mt30"="3","mt32"="4","mt34"="5","hum65"="6","hum80"="7",
          "wpf"="8","ac"="9","mt"="10") %>% 
   mutate(time = -0.04108,
          ASC = -5.59134)
 
-KLA_raw <- read_excel(here::here("data","CE_KLA_ZTCM","KLA_Rawdata.xlsx")) %>% 
+KLA_raw <- read_excel(here::here("data","data_R","CE_KLA_ZTCM","KLA_Rawdata.xlsx")) %>% 
   select(ID, UGS,Year, Citis, Pop,  Vis, ln_VisPop="ln(Vis/Pop)", Dist="Dist...8",Chl,Eld) %>% 
   mutate(
     TC =  160*Dist/10 + 545.7*10000*(1/52)*(1/5)*(1/8)*(1/3)*Dist/20,
@@ -54,7 +54,7 @@ distance <- KLA_raw  %>% select(UGS,Year, Citis, Dist) %>%
   filter(Year==2018) %>% select(-Year)
 
 # connecting data of distance and characteristics of park
-UGS_info <- read_excel(here::here("data","UGS_info.xlsx")) %>% select(-ID)
+UGS_info <- read_excel(here::here("data","data_R","UGS_info.xlsx")) %>% select(-ID)
 park <- distance %>% 
   left_join(
     UGS_info,   by = c("UGS")
