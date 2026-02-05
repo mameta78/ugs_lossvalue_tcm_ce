@@ -14,21 +14,35 @@ The study integrates a Big Data based zonal travel cost model (TCM) with a discr
 ## Repository Structure
 
 ```.
-├── CEE_code.R                # Main R script for integrating TCM and DCE results
-├── CEE_appendix.R            # Appendix analyses and robustness checks
-├── data_R/                   # Processed data for R analysis
-├── data_Nlogit/              # Input files for NLOGIT estimation
-├── CE_Command.lim            # NLOGIT command file (main model)
-├── CE_Command_WBGT.lim       # NLOGIT command file (WBGT specification)
-├── CE_Design.ngs             # Ngene experimental design file
-├── Read.lim                  # NLOGIT data reading script
-├── Read_WBGT.lim             # NLOGIT data reading script (WBGT)
-├── Output_RPL_main.lim       # Random parameters logit results
-├── Output_RPL_WBGT.lim       # WBGT based RPL results
-├── Output_LCM.lim            # Latent class model results
-├── Output_continuous.lim     # Continuous specification results
-├── Derived_CE_*.lpj          # Derived choice probabilities
-└── README.md
+├── README.md
+├── LICENSE
+│
+├── data/
+│   ├── data_Nlogit/                 # Derived outputs from NLOGIT
+│   │   ├── Derived_CE_*.csv
+│   │   └── Derived_Sap_*.csv
+│   │
+│   └── data_R/                      # Input and processed data for R
+│       ├── CE_KLA_ZTCM/
+│       ├── data_appendix10.xlsx
+│       └── UGS_info.xlsx
+│
+├── R/                               # R scripts for integrating TCM and DCE results
+│   ├── CEE_code.R                  # Main script
+│   └── CEE_appendix.R              # Appendix and robustness analyses
+│
+├── Nlogit/                          # NLOGIT command, reading, and output files
+│   ├── Read.lim
+│   ├── Read_WBGT.lim
+│   ├── CE_Command.lim
+│   ├── CE_Command_WBGT.lim
+│   ├── Derived_CE_*.lpj
+│   ├── Output_RPL_main.lim
+│   ├── Output_RPL_WBGT.lim
+│   ├── Output_LCM.lim
+│   └── Output_continuous.lim
+│
+└── Ngene/                           # Experimental design files (optional)
 ```
 
 ## Workflow
