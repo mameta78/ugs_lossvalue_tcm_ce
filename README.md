@@ -1,6 +1,10 @@
 # Quantifying Recreational Value Losses of Urban Green Spaces under Extreme Heat and Humidity
 
-## Overview
+## Abstract
+
+This study quantifies recreational value losses of urban green spaces under extreme heat and humidity by integrating a Big Data based zonal travel cost model with a discrete choice experiment. Using mobile phone GPS data and stated preference surveys in Sapporo, Japan, we estimate current recreational benefits and project welfare losses under future climate scenarios. Results show that extreme summer conditions can reduce annual recreational value by more than USD 20 million, while water play features and indoor cooling facilities substantially mitigate these losses. The findings provide policy relevant insights for climate resilient urban planning and adaptation strategies.
+
+### Overview
 This repository provides replication code and supporting materials for the paper:
 
 Quantifying the loss of recreational value derived from urban green spaces under extreme heat and humidity
@@ -26,18 +30,6 @@ The study integrates a Big Data based zonal travel cost model (TCM) with a discr
 ├── Derived_CE_*.lpj          # Derived choice probabilities
 └── README.md
 ```
-
-### Software Requirements
-R (>= 4.2)
-
-Required R packages:
-tidyverse
-data.table
-ggplot2
-
-NLOGIT 6 (Econometric Software Inc.) for DCE estimation
-
-Ngene for experimental design (optional)
 
 ## Workflow
 1. Discrete choice models (MXL) are estimated in NLOGIT using:
@@ -65,6 +57,18 @@ Main entry point:
 Appendix and robustness analyses:
 
     CEE_appendix.R
+
+### Software Requirements
+R (>= 4.2)
+
+Required R packages:
+tidyverse
+data.table
+ggplot2
+
+NLOGIT 6 (Econometric Software Inc.) for DCE estimation
+
+Ngene for experimental design (optional)
 
 ### Data Availability
 
