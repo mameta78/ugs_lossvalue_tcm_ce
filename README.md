@@ -3,9 +3,9 @@
 ## Authors
 This repository is maintained by Kota Mameno in collaboration with Yasushi Shoji.
 
-Paper authors:
-First author and corresponding author: Jiayu Wang.
-Co-authors: Kota Mameno, Tatsuya Owake, Tetsuya Aikoh, Yasushi Shoji.
+Paper authors:  
+First author and corresponding author: Jiayu Wang  
+Co-authors: Kota Mameno, Tatsuya Owake, Tetsuya Aikoh, Yasushi Shoji
 
 ## Abstract
 
