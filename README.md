@@ -67,8 +67,12 @@ Appendix and robustness analyses:
     CEE_appendix.R
 
 ### Data Availability
+
 Due to privacy restrictions on mobile phone location data, raw Big Data are not publicly available.
 
 Processed datasets required to reproduce the main results are provided in:
-data_R/
-data_Nlogit/
+
+    data_R/
+    data_Nlogit/
+
+
