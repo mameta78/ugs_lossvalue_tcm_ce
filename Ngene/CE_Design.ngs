@@ -1,0 +1,24 @@
+Design
+;alts = alt1, alt2, alt3
+;rows = 48
+;eff=(mnl,d)
+;alg = mfederov(stop=total(100000 iterations))
+;block= 8
+;model:
+
+U(alt1) =
+ temp.effects [4.0|3.0|1.0|0.0|-2.0] * temp [0,1,2,3,4,5](7-9,7-9,7-9,7-9,7-9,7-9)
++humid.effects[2.0|1.0]          * humid[0,1,2]    (14-18,14-18,14-18)
++water.effects[1.0]              * water[0,1](22-26,22-26)
++airc.effects [2.0]              * airc [0,1](22-26,22-26)
++tcost[-0.05]                    * tcost[15,30,45,60,90](8-11,8-11,8-11,8-11,8-11)/
+
+U(alt2) =
+ temp.effects  * temp
++humid.effects * humid
++water.effects * water
++airc.effects  * airc
++tcost         * tcost/
+
+U(alt3) = -2
+$

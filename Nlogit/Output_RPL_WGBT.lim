@@ -1,0 +1,142 @@
+|-> RESET
+
+====================================================
+                        ____   ___       _____
+       /\    /   /     /   /  /      /     /
+      /  \  /   /     /   /  /___   /     /
+     /    \/   /___  /___/  /___/  /     /
+
+====================================================
+
+O---------------------------------------------------------O
+| NLOGIT 6  (tm)              Nov 20, 2025, 02:41:32PM    |
+| Econometric Software, Inc.  Copyright 1986-2016         |
+| Plainview, New York 11803   www.nlogit.com              |
+| Registered to Yasushi Shoji                             |
+|               Hokkaido University                       |
+| Registration Number:  1222-R018937-6NS                  |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 6 (Sep 7, 2016)---------
+-----------------------------------------------------------
+
+|-> RESET
+|-> LOAD;file="C:\Dropbox\NLOGIT\Park_CE_2023\Derived_CE_Sapporo_2023_WBGT.lpj"$
+Project file contained   37704 observations.
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> REJECT; Times = 0$
+|-> CREATE; MT = (maxt-30) * ttime /10 $
+|-> NLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=wb22, wb24, wb26, wb28, wb30, wb32,wpf, ac, ttime, asc, mt
+    	;Parameters
+    		;RPL
+    		;Pds=panel
+    		;Halton
+    		;Pts=1000
+    		;Fcn=wb22(N), wb24(N), wb26(N), wb28(N), wb30(N), wb32(N),
+    			wpf(N), ac(N), mt(N)
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .7359155D+04
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -7359.15489
+Estimation based on N =   8024, K =  11
+Inf.Cr.AIC  =  14740.3 AIC/N =    1.837
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  -8722.5202  .1563 .1553
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.=  8024, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    WB22|    1.14697***      .06989    16.41  .0000     1.00999   1.28396
+    WB24|     .70698***      .05117    13.82  .0000      .60669    .80727
+    WB26|    -.17855***      .04395    -4.06  .0000     -.26469   -.09241
+    WB28|    -.73221***      .07150   -10.24  .0000     -.87234   -.59208
+    WB30|   -1.16757***      .09031   -12.93  .0000    -1.34457   -.99057
+    WB32|   -1.09407***      .16830    -6.50  .0000    -1.42393   -.76421
+     WPF|    -.08304***      .01935    -4.29  .0000     -.12096   -.04511
+      AC|     .11066***      .02078     5.32  .0000      .06992    .15139
+      MT|    -.01392***      .00234    -5.95  .0000     -.01850   -.00934
+   TTIME|    -.02284***      .00107   -21.31  .0000     -.02494   -.02074
+     ASC|   -2.49353***      .12666   -19.69  .0000    -2.74178  -2.24528
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Nov 20, 2025 at 02:42:11 PM
+-----------------------------------------------------------------------------
+
+Iterative procedure has converged
+Normal exit:  58 iterations. Status=0, F=    .6237285D+04
+
+-----------------------------------------------------------------------------
+Random Parameters Multinom. Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -6237.28507
+Restricted log likelihood   -8815.26500
+Chi squared [ 20](P= .000)   5155.95986
+Significance level               .00000
+McFadden Pseudo R-squared      .2924450
+Estimation based on N =   8024, K =  20
+Inf.Cr.AIC  =  12514.6 AIC/N =    1.560
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+No coefficients -8815.2650  .2924 .2916
+Constants only  -8722.5202  .2849 .2840
+At start values -7359.1549  .1524 .1514
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Replications for simulated probs. =1000
+Used Halton sequences in simulations.
+RPL model with panel has    1003 groups
+Variable number of obs./group =PANEL
+Number of obs.=  8024, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions..............................
+    WB22|    1.81441***      .10673    17.00  .0000     1.60523   2.02360
+    WB24|    1.23431***      .08724    14.15  .0000     1.06333   1.40530
+    WB26|    -.14507*        .08520    -1.70  .0886     -.31207    .02193
+    WB28|   -1.27522***      .14466    -8.82  .0000    -1.55875   -.99169
+    WB30|   -1.44875***      .15919    -9.10  .0000    -1.76077  -1.13674
+    WB32|   -2.40866***      .30488    -7.90  .0000    -3.00621  -1.81112
+     WPF|    -.12713***      .02979    -4.27  .0000     -.18551   -.06875
+      AC|     .14755***      .03255     4.53  .0000      .08375    .21136
+      MT|    -.02688***      .00387    -6.95  .0000     -.03446   -.01930
+        |Nonrandom parameters in utility functions...........................
+   TTIME|    -.03484***      .00159   -21.97  .0000     -.03795   -.03173
+     ASC|   -4.11742***      .22236   -18.52  .0000    -4.55323  -3.68161
+        |Distns. of RPs. Std.Devs or limits of triangular....................
+  NsWB22|     .08732         .22378      .39  .6964     -.35129    .52593
+  NsWB24|     .72276***      .09437     7.66  .0000      .53779    .90772
+  NsWB26|    1.06871***      .08290    12.89  .0000      .90624   1.23119
+  NsWB28|    1.35835***      .13621     9.97  .0000     1.09139   1.62531
+  NsWB30|     .49853**       .24871     2.00  .0450      .01107    .98599
+  NsWB32|     .52500         .39914     1.32  .1884     -.25730   1.30730
+   NsWPF|     .33422***      .04625     7.23  .0000      .24357    .42486
+    NsAC|     .46991***      .03973    11.83  .0000      .39205    .54778
+    NsMT|     .05419***      .00303    17.90  .0000      .04826    .06012
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Nov 20, 2025 at 08:00:13 PM
+-----------------------------------------------------------------------------
+

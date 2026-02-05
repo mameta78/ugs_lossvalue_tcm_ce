@@ -1,0 +1,118 @@
+?/*** CLOGIT ***/?
+INCLUDE	; ceid>0$
+SKIP$
+REJECT; REJECT_2=1$
+CLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=maxt, hum, wpf, ac, ttime, asc
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+$
+
+?/*** CLOGIT ***/?
+INCLUDE	; ceid>0$
+SKIP$
+REJECT; REJECT_2=1$
+CREATE; MT = (maxt-30) * ttime /10 $
+CLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=maxt, hum, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+$
+
+?/*** CLOGIT ***/?
+INCLUDE	; ceid>0$
+SKIP$
+REJECT; REJECT_2=1$
+CREATE; maxt2 = maxt * maxt /100$
+CREATE; MT = (maxt-30) * ttime /10 $
+CREATE; hum2 = hum * hum$
+CLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=maxt, maxt2, hum, hum2, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+$
+
+
+
+?/*** CLOGIT ***/?
+INCLUDE	; ceid>0$
+SKIP$
+REJECT; REJECT_2=1$
+CREATE; MT = (maxt-30) * ttime /10 $
+CLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34,
+		hum65, hum80, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+$
+
+
+?/*** Latent Class Model 2 ***/?
+INCLUDE	; ceid>0$
+SKIP$
+CREATE	; fem = abs(male - 1)$
+REJECT; REJECT_2=1$
+CREATE; MT = (maxt-30) * ttime /10 $
+NLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34, 
+		hum65, hum80, wpf, ac, ttime, asc, mt
+		;Parameters
+		;LCM = eld_56, male, Q06_01, Q06_03
+		;Pds=panel
+		;Halton
+		;Pts=2
+    	;maxit=200
+    	;tlf=0.00000000001
+$
+
+
+?/*** CLOGIT Times > 0 ***/?
+INCLUDE	; ceid>0$
+SKIP$
+REJECT; REJECT_2=1$
+REJECT; Times = 0$
+CREATE; MT = (maxt-30) * ttime /10 $
+NLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34,
+		hum65, hum80, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+$
+
+?/*** Random Parameter Logit Model Times > 0 ***/?
+
+SKIP$
+REJECT; REJECT_2=1$
+REJECT; Times = 0$
+NLOGIT	
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34, 
+		hum65, hum80, wpf, ac, ttime, asc, mt
+    	;Parameters
+		;RPL
+		;Pds=panel
+		;Halton
+		;Pts=1000
+		;Fcn=mt26(N), mt28(N), mt30(N), mt32(N), mt34(N),
+			hum65(N), hum80(N), wpf(N), ac(N), mt(N)
+    	;maxit=200
+    	;tlf=0.00000000001
+$

@@ -1,0 +1,534 @@
+|-> RESET
+
+====================================================
+                        ____   ___       _____
+       /\    /   /     /   /  /      /     /
+      /  \  /   /     /   /  /___   /     /
+     /    \/   /___  /___/  /___/  /     /
+
+====================================================
+
+O---------------------------------------------------------O
+| NLOGIT 6  (tm)              Jan 25, 2025, 09:09:16AM    |
+| Econometric Software, Inc.  Copyright 1986-2016         |
+| Plainview, New York 11803   www.nlogit.com              |
+| Registered to Yasushi Shoji                             |
+|               Hokkaido University                       |
+| Registration Number:  1122-R018913-6NS                  |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 6 (Sep 7, 2016)---------
+-----------------------------------------------------------
+
+|-> RESET
+|-> LOAD;file="C:\Dropbox\NLOGIT\Park_CE_2023\Derived_CE_Sapporo_2023.lpj"$
+Project file contained   37704 observations.
+|-> INCLUDE	; ceid>0$
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> CLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=maxt, hum, wpf, ac, ttime, asc
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .1021025D+05
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function    -10210.25466
+Estimation based on N =  10920, K =   6
+Inf.Cr.AIC  =  20432.5 AIC/N =    1.871
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  **********  .1471 .1469
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.= 10920, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    MAXT|    -.31656***      .00702   -45.12  .0000     -.33031   -.30281
+     HUM|   -2.29964***      .14930   -15.40  .0000    -2.59226  -2.00701
+     WPF|    -.00105         .01570     -.07  .9466     -.03182    .02972
+      AC|     .20444***      .01842    11.10  .0000      .16833    .24055
+   TTIME|    -.02003***      .00068   -29.63  .0000     -.02135   -.01870
+     ASC|   -2.92184***      .07771   -37.60  .0000    -3.07414  -2.76955
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:12:51 AM
+-----------------------------------------------------------------------------
+
+|-> INCLUDE	; ceid>0$
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> CREATE; MT = (maxt-30) * ttime /10 $
+|-> CLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=maxt, hum, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .1020360D+05
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function    -10203.59960
+Estimation based on N =  10920, K =   7
+Inf.Cr.AIC  =  20421.2 AIC/N =    1.870
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  **********  .1476 .1474
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.= 10920, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    MAXT|    -.28053***      .01205   -23.29  .0000     -.30414   -.25692
+     HUM|   -2.19027***      .15227   -14.38  .0000    -2.48872  -1.89182
+     WPF|    -.02481         .01700    -1.46  .1444     -.05813    .00850
+      AC|     .19104***      .01882    10.15  .0000      .15416    .22793
+   TTIME|    -.02225***      .00092   -24.19  .0000     -.02405   -.02044
+     ASC|   -2.77964***      .08675   -32.04  .0000    -2.94968  -2.60961
+      MT|    -.00803***      .00221    -3.64  .0003     -.01236   -.00370
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:12:53 AM
+-----------------------------------------------------------------------------
+
+|-> INCLUDE	; ceid>0$
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> CREATE; maxt2 = maxt * maxt /100$
+|-> CREATE; MT = (maxt-30) * ttime /10 $
+|-> CREATE; hum2 = hum * hum$
+|-> CLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=maxt, maxt2, hum, hum2, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .1015457D+05
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function    -10154.56995
+Estimation based on N =  10920, K =   9
+Inf.Cr.AIC  =  20327.1 AIC/N =    1.861
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  **********  .1517 .1514
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.= 10920, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    MAXT|    -.54537***      .09997    -5.46  .0000     -.74132   -.34943
+   MAXT2|     .41151**       .17139     2.40  .0164      .07559    .74744
+     HUM|    17.1686***     1.99671     8.60  .0000     13.2551   21.0821
+    HUM2|   -15.0905***     1.55669    -9.69  .0000    -18.1415  -12.0394
+     WPF|     .00475         .01768      .27  .7880     -.02991    .03941
+      AC|     .21757***      .01978    11.00  .0000      .17880    .25635
+   TTIME|    -.02125***      .00093   -22.75  .0000     -.02308   -.01942
+     ASC|   -2.86589***      .09042   -31.69  .0000    -3.04312  -2.68866
+      MT|    -.00319         .00229    -1.39  .1638     -.00767    .00130
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:12:56 AM
+-----------------------------------------------------------------------------
+
+|-> INCLUDE	; ceid>0$
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> CREATE; MT = (maxt-30) * ttime /10 $
+|-> CLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34,
+    		hum65, hum80, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .1013862D+05
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function    -10138.62033
+Estimation based on N =  10920, K =  12
+Inf.Cr.AIC  =  20301.2 AIC/N =    1.859
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  **********  .1531 .1526
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.= 10920, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    MT26|     .89011***      .04694    18.96  .0000      .79810    .98211
+    MT28|     .36558***      .03285    11.13  .0000      .30120    .42996
+    MT30|    -.53018***      .04052   -13.08  .0000     -.60960   -.45076
+    MT32|    -.85358***      .05397   -15.81  .0000     -.95937   -.74780
+    MT34|   -1.45599***      .07479   -19.47  .0000    -1.60258  -1.30941
+   HUM65|     .23350***      .02357     9.91  .0000      .18730    .27970
+   HUM80|    -.48877***      .02900   -16.86  .0000     -.54560   -.43193
+     WPF|     .00252         .01768      .14  .8864     -.03212    .03717
+      AC|     .20687***      .01990    10.39  .0000      .16785    .24588
+   TTIME|    -.02104***      .00093   -22.58  .0000     -.02287   -.01922
+     ASC|   -2.84547***      .09123   -31.19  .0000    -3.02428  -2.66666
+      MT|    -.00296         .00228    -1.30  .1942     -.00743    .00151
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:12:59 AM
+-----------------------------------------------------------------------------
+
+|-> INCLUDE	; ceid>0$
+|-> SKIP$
+|-> CREATE	; fem = abs(male - 1)$
+|-> REJECT; REJECT_2=1$
+|-> CREATE; MT = (maxt-30) * ttime /10 $
+|-> NLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34,
+    		hum65, hum80, wpf, ac, ttime, asc, mt
+    		;Parameters
+    		;LCM = eld_56, male, Q06_01, Q06_03
+    		;Pds=panel
+    		;Halton
+    		;Pts=2
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .1013862D+05
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function    -10138.62033
+Estimation based on N =  10920, K =  12
+Inf.Cr.AIC  =  20301.2 AIC/N =    1.859
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  **********  .1531 .1519
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.= 10920, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+  MT26|1|     .89011***      .04694    18.96  .0000      .79810    .98211
+  MT28|1|     .36558***      .03285    11.13  .0000      .30120    .42996
+  MT30|1|    -.53018***      .04052   -13.08  .0000     -.60960   -.45076
+  MT32|1|    -.85358***      .05397   -15.81  .0000     -.95937   -.74780
+  MT34|1|   -1.45599***      .07479   -19.47  .0000    -1.60258  -1.30941
+ HUM65|1|     .23350***      .02357     9.91  .0000      .18730    .27970
+ HUM80|1|    -.48877***      .02900   -16.86  .0000     -.54560   -.43193
+   WPF|1|     .00252         .01768      .14  .8864     -.03212    .03717
+    AC|1|     .20687***      .01990    10.39  .0000      .16785    .24588
+ TTIME|1|    -.02104***      .00093   -22.58  .0000     -.02287   -.01922
+   ASC|1|   -2.84547***      .09123   -31.19  .0000    -3.02428  -2.66666
+    MT|1|    -.00296         .00228    -1.30  .1942     -.00743    .00151
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:13:02 AM
+-----------------------------------------------------------------------------
+
+Iterative procedure has converged
+Normal exit:  42 iterations. Status=0, F=    .8665889D+04
+Constructed name _Q06_0|1 was not unique. Changed to _Q06_1|1
+Constructed name _Q06_0|2 was not unique. Changed to _Q06_1|2
+
+-----------------------------------------------------------------------------
+Latent Class Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -8665.88874
+Restricted log likelihood  -11996.84619
+Chi squared [ 29](P= .000)   6661.91491
+Significance level               .00000
+McFadden Pseudo R-squared      .2776528
+Estimation based on N =  10920, K =  29
+Inf.Cr.AIC  =  17389.8 AIC/N =    1.592
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+No coefficients **********  .2777 .2767
+Constants only  **********  .2761 .2751
+At start values **********  .1453 .1441
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of latent classes =            2
+Average Class Probabilities
+     .597  .403
+LCM model with panel has    1365 groups
+Variable number of obs./group =PANEL
+Number of obs.= 10920, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random utility parameters in latent class -->>  1...................
+  MT26|1|    1.07957***      .07045    15.32  .0000      .94149   1.21765
+  MT28|1|     .55351***      .04413    12.54  .0000      .46701    .64001
+  MT30|1|    -.46925***      .04937    -9.50  .0000     -.56602   -.37248
+  MT32|1|    -.99019***      .07434   -13.32  .0000    -1.13588   -.84449
+  MT34|1|   -1.76489***      .10767   -16.39  .0000    -1.97591  -1.55387
+ HUM65|1|     .25703***      .03324     7.73  .0000      .19189    .32217
+ HUM80|1|    -.60569***      .04079   -14.85  .0000     -.68564   -.52575
+   WPF|1|     .02405         .02382     1.01  .3128     -.02265    .07074
+    AC|1|     .29465***      .02615    11.27  .0000      .24339    .34591
+ TTIME|1|    -.02289***      .00114   -20.10  .0000     -.02512   -.02065
+   ASC|1|   -4.73363***      .15386   -30.77  .0000    -5.03519  -4.43207
+    MT|1|     .00355         .00306     1.16  .2461     -.00245    .00955
+        |Random utility parameters in latent class -->>  2...................
+  MT26|2|    1.22318***      .10634    11.50  .0000     1.01477   1.43159
+  MT28|2|     .24151**       .09720     2.48  .0130      .05101    .43201
+  MT30|2|   -1.03490***      .15095    -6.86  .0000    -1.33075   -.73904
+  MT32|2|   -1.17476***      .17722    -6.63  .0000    -1.52211   -.82741
+  MT34|2|   -1.31582***      .20684    -6.36  .0000    -1.72122   -.91042
+ HUM65|2|     .20725***      .05184     4.00  .0001      .10564    .30886
+ HUM80|2|    -.45639***      .07048    -6.48  .0000     -.59453   -.31824
+   WPF|2|    -.10167**       .04060    -2.50  .0123     -.18125   -.02208
+    AC|2|     .08597*        .05179     1.66  .0969     -.01554    .18749
+ TTIME|2|    -.03113***      .00346    -9.00  .0000     -.03790   -.02435
+   ASC|2|   -1.74843***      .18785    -9.31  .0000    -2.11661  -1.38025
+    MT|2|    -.02251***      .00687    -3.28  .0011     -.03598   -.00904
+        |This is THETA(01) in class probability model........................
+  _ONE|1|     .05319         .12527      .42  .6711     -.19233    .29872
+_ELD_5|1|    -.34331***      .12564    -2.73  .0063     -.58957   -.09706
+ _MALE|1|     .26817**       .12822     2.09  .0365      .01688    .51947
+_Q06_0|1|     .75518***      .12991     5.81  .0000      .50056   1.00981
+_Q06_1|1|    1.01915***      .38466     2.65  .0081      .26523   1.77308
+        |This is THETA(02) in class probability model........................
+  _ONE|2|        0.0    .....(Fixed Parameter).....
+_ELD_5|2|        0.0    .....(Fixed Parameter).....
+ _MALE|2|        0.0    .....(Fixed Parameter).....
+_Q06_0|2|        0.0    .....(Fixed Parameter).....
+_Q06_1|2|        0.0    .....(Fixed Parameter).....
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+Model was estimated on Jan 25, 2025 at 09:13:24 AM
+-----------------------------------------------------------------------------
+
+|-> INCLUDE	; ceid>0$
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> REJECT; Times = 0$
+|-> CREATE; MT = (maxt-30) * ttime /10 $
+|-> NLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34,
+    		hum65, hum80, wpf, ac, ttime, asc, mt
+    	;Parameters
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .7307014D+04
+
+-----------------------------------------------------------------------------
+Discrete choice (multinomial logit) model
+Dependent variable               Choice
+Log likelihood function     -7307.01391
+Estimation based on N =   8024, K =  12
+Inf.Cr.AIC  =  14638.0 AIC/N =    1.824
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  -8722.5202  .1623 .1617
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.=  8024, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    MT26|     .90141***      .05531    16.30  .0000      .79301   1.00980
+    MT28|     .37457***      .03814     9.82  .0000      .29982    .44933
+    MT30|    -.51544***      .04634   -11.12  .0000     -.60627   -.42461
+    MT32|    -.84624***      .06256   -13.53  .0000     -.96886   -.72362
+    MT34|   -1.50903***      .08777   -17.19  .0000    -1.68107  -1.33700
+   HUM65|     .26662***      .02762     9.65  .0000      .21249    .32075
+   HUM80|    -.55903***      .03435   -16.28  .0000     -.62636   -.49171
+     WPF|     .00201         .02072      .10  .9228     -.03861    .04263
+      AC|     .21964***      .02325     9.45  .0000      .17407    .26521
+   TTIME|    -.02270***      .00108   -20.94  .0000     -.02483   -.02058
+     ASC|   -3.16854***      .10915   -29.03  .0000    -3.38247  -2.95461
+      MT|    -.00437         .00267    -1.64  .1016     -.00961    .00086
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:13:27 AM
+-----------------------------------------------------------------------------
+
+|-> SKIP$
+|-> REJECT; REJECT_2=1$
+|-> REJECT; Times = 0$
+|-> NLOGIT
+    	;Lhs=choice
+    	;Choices=1,2,3
+    	;Rhs=mt26, mt28, mt30, mt32, mt34,
+    		hum65, hum80, wpf, ac, ttime, asc, mt
+    	;Parameters
+    		;RPL
+    		;Pds=panel
+    		;Halton
+    		;Pts=1000
+    		;Fcn=mt26(N), mt28(N), mt30(N), mt32(N), mt34(N),
+    			hum65(N), hum80(N), wpf(N), ac(N), mt(N)
+    	;maxit=200
+    	;tlf=0.00000000001
+    $
+Iterative procedure has converged
+Normal exit:   6 iterations. Status=0, F=    .7307014D+04
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function     -7307.01391
+Estimation based on N =   8024, K =  12
+Inf.Cr.AIC  =  14638.0 AIC/N =    1.824
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+Constants only  -8722.5202  .1623 .1611
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Number of obs.=  8024, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+    MT26|     .90141***      .05531    16.30  .0000      .79301   1.00980
+    MT28|     .37457***      .03814     9.82  .0000      .29982    .44933
+    MT30|    -.51544***      .04634   -11.12  .0000     -.60627   -.42461
+    MT32|    -.84624***      .06256   -13.53  .0000     -.96886   -.72362
+    MT34|   -1.50903***      .08777   -17.19  .0000    -1.68107  -1.33700
+   HUM65|     .26662***      .02762     9.65  .0000      .21249    .32075
+   HUM80|    -.55903***      .03435   -16.28  .0000     -.62636   -.49171
+     WPF|     .00201         .02072      .10  .9228     -.03861    .04263
+      AC|     .21964***      .02325     9.45  .0000      .17407    .26521
+      MT|    -.00437         .00267    -1.64  .1016     -.00961    .00086
+   TTIME|    -.02270***      .00108   -20.94  .0000     -.02483   -.02058
+     ASC|   -3.16854***      .10915   -29.03  .0000    -3.38247  -2.95461
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:13:29 AM
+-----------------------------------------------------------------------------
+
+Iterative procedure has converged
+Normal exit:  55 iterations. Status=0, F=    .6181937D+04
+
+-----------------------------------------------------------------------------
+Random Parameters Multinom. Logit Model
+Dependent variable               CHOICE
+Log likelihood function     -6181.93674
+Restricted log likelihood   -8815.26500
+Chi squared [ 22](P= .000)   5266.65652
+Significance level               .00000
+McFadden Pseudo R-squared      .2987237
+Estimation based on N =   8024, K =  22
+Inf.Cr.AIC  =  12407.9 AIC/N =    1.546
+---------------------------------------
+            Log likelihood R-sqrd R2Adj
+No coefficients -8815.2650  .2987 .2978
+Constants only  -8722.5202  .2913 .2903
+At start values -7307.0139  .1540 .1528
+Note: R-sqrd = 1 - logL/Logl(constants)
+Warning:  Model does not contain a full
+set of ASCs. R-sqrd is problematic. Use
+model setup with ;RHS=one to get LogL0.
+---------------------------------------
+Response data are given as ind. choices
+Replications for simulated probs. =1000
+Used Halton sequences in simulations.
+RPL model with panel has    1003 groups
+Variable number of obs./group =PANEL
+Number of obs.=  8024, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions..............................
+    MT26|    1.45002***      .09176    15.80  .0000     1.27018   1.62986
+    MT28|     .71848***      .06556    10.96  .0000      .58998    .84698
+    MT30|    -.72265***      .09961    -7.25  .0000     -.91789   -.52742
+    MT32|   -1.72153***      .13560   -12.70  .0000    -1.98729  -1.45576
+    MT34|   -2.47630***      .15921   -15.55  .0000    -2.78835  -2.16424
+   HUM65|     .41887***      .04677     8.96  .0000      .32721    .51053
+   HUM80|   -1.05075***      .06406   -16.40  .0000    -1.17631   -.92518
+     WPF|     .05833*        .03476     1.68  .0933     -.00978    .12645
+      AC|     .43694***      .04199    10.40  .0000      .35464    .51925
+      MT|    -.02135***      .00493    -4.33  .0000     -.03100   -.01169
+        |Nonrandom parameters in utility functions...........................
+   TTIME|    -.04108***      .00189   -21.77  .0000     -.04478   -.03739
+     ASC|   -5.59134***      .20581   -27.17  .0000    -5.99471  -5.18796
+        |Distns. of RPs. Std.Devs or limits of triangular....................
+  NsMT26|     .02138         .11604      .18  .8538     -.20606    .24882
+  NsMT28|     .69181***      .09483     7.30  .0000      .50594    .87767
+  NsMT30|     .88571***      .13781     6.43  .0000      .61561   1.15581
+  NsMT32|    1.38983***      .11051    12.58  .0000     1.17322   1.60643
+  NsMT34|     .74529***      .18762     3.97  .0001      .37757   1.11302
+ NsHUM65|     .29087***      .09132     3.19  .0014      .11188    .46986
+ NsHUM80|     .78478***      .05519    14.22  .0000      .67661    .89294
+   NsWPF|     .33930***      .06213     5.46  .0000      .21752    .46107
+    NsAC|     .61227***      .04250    14.41  .0000      .52898    .69556
+    NsMT|     .06505***      .00368    17.67  .0000      .05783    .07227
+--------+--------------------------------------------------------------------
+***, **, * ==>  Significance at 1%, 5%, 10% level.
+Model was estimated on Jan 25, 2025 at 09:32:21 PM
+-----------------------------------------------------------------------------
+
