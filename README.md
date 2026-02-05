@@ -87,11 +87,6 @@ Appendix and robustness analyses:
 ### Software Requirements
 R (>= 4.2)
 
-Required R packages:
-tidyverse
-data.table
-ggplot2
-
 NLOGIT 6 (Econometric Software Inc.) for DCE estimation
 
 Ngene for experimental design (optional)
