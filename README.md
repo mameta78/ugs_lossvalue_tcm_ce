@@ -1,5 +1,12 @@
 # Quantifying Recreational Value Losses of Urban Green Spaces under Extreme Heat and Humidity
 
+## Authors
+This repository is maintained by Kota Mameno in collaboration with Yasushi Shoji.
+
+Paper authors:
+First author and corresponding author: Jiayu Wang.
+Co-authors: Kota Mameno, Tatsuya Owake, Tetsuya Aikoh, Yasushi Shoji.
+
 ## Abstract
 
 This study quantifies recreational value losses of urban green spaces under extreme heat and humidity by integrating a Big Data based zonal travel cost model with a discrete choice experiment. Using mobile phone GPS data and stated preference surveys in Sapporo, Japan, we estimate current recreational benefits and project welfare losses under future climate scenarios. Results show that extreme summer conditions can reduce annual recreational value by more than USD 20 million, while water play features and indoor cooling facilities substantially mitigate these losses. The findings provide policy relevant insights for climate resilient urban planning and adaptation strategies.
