@@ -46,27 +46,32 @@ The study integrates a Big Data based zonal travel cost model (TCM) with a discr
 ```
 
 ## Workflow
-1. Discrete choice models (MXL) are estimated in NLOGIT using:
+### Step 1: Discrete choice estimation (NLOGIT)
 
-    CE_Command.lim  
-    CE_Command_WBGT.lim  
+Discrete choice models (MXL, RPL, and LCM) are estimated in NLOGIT using:
 
-2. Output files from NLOGIT are stored as:
+    CE_Command.lim
+    CE_Command_WBGT.lim
 
-    Output_RPL_main.lim  
-    Output_RPL_WBGT.lim  
-    Output_LCM.lim  
+Key output files:
 
-3. R scripts are then used to:
+    Output_RPL_main.lim
+    Output_RPL_WBGT.lim
+    Output_LCM.lim
+    Output_continuous.lim
 
-    integrate DCE results with TCM estimates  
-    calculate changes in visitation probabilities  
-    estimate recreational value losses  
-    generate figures and appendix results  
+### Step 2: Integration and welfare estimation (R)
+
+R scripts are then used to:
+
+    integrate DCE results with TCM estimates
+    calculate changes in visitation probabilities
+    estimate recreational value losses
+    generate figures and appendix results
 
 Main entry point:
 
-    CEE_code.R  
+    CEE_code.R
 
 Appendix and robustness analyses:
 
