@@ -40,33 +40,31 @@ NLOGIT 6 (Econometric Software Inc.) for DCE estimation
 Ngene for experimental design (optional)
 
 ## Workflow
-
 1. Discrete choice models (MXL) are estimated in NLOGIT using:
 
-   CE_Command.lim  
-   CE_Command_WBGT.lim  
+    CE_Command.lim  
+    CE_Command_WBGT.lim  
 
 2. Output files from NLOGIT are stored as:
 
-   Output_RPL_main.lim  
-   Output_RPL_WBGT.lim  
-   Output_LCM.lim  
+    Output_RPL_main.lim  
+    Output_RPL_WBGT.lim  
+    Output_LCM.lim  
 
 3. R scripts are then used to:
 
-   integrate DCE results with TCM estimates  
-   calculate changes in visitation probabilities  
-   estimate recreational value losses  
-   generate figures and appendix results  
+    integrate DCE results with TCM estimates  
+    calculate changes in visitation probabilities  
+    estimate recreational value losses  
+    generate figures and appendix results  
 
 Main entry point:
 
-   CEE_code.R
+    CEE_code.R  
 
 Appendix and robustness analyses:
 
-   CEE_appendix.R
-
+    CEE_appendix.R
 
 ### Data Availability
 Due to privacy restrictions on mobile phone location data, raw Big Data are not publicly available.
