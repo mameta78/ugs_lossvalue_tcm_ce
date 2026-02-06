@@ -1,4 +1,4 @@
-# Quantifying Recreational Value Losses of Urban Green Spaces under Extreme Heat and Humidity
+# Extreme heat and humidity reduce recreational value of urban green spaces
 
 ## Authors
 This repository is maintained by Kota Mameno in collaboration with Yasushi Shoji and Jiayu Wang.
